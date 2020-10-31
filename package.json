@@ -1,0 +1,18 @@
+{
+  "name": "sitemap-ping",
+  "license": "MIT",
+  "devDependencies": {
+    "commitizen": "^4.2.2",
+    "lerna": "^3.22.1"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "private": true,
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}
