@@ -6,6 +6,9 @@
   "homepage": "",
   "license": "MIT",
   "main": "lib/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -25,5 +28,6 @@
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
-  }
+  },
+  "gitHead": "de321b3b5594d82c2dfc6c83e937dd8be1edc3e2"
 }
