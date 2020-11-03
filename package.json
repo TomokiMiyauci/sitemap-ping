@@ -3,7 +3,8 @@
   "license": "MIT",
   "devDependencies": {
     "commitizen": "^4.2.2",
-    "lerna": "^3.22.1"
+    "eslint": "^7.12.1",
+    "eslint-plugin-simple-import-sort": "^5.0.3"
   },
   "workspaces": [
     "packages/*",

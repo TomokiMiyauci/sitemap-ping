@@ -1,0 +1,16 @@
+{
+  "root": true,
+  "env": {
+    "es2021": true,
+    "node": true
+  },
+  "extends": ["eslint:recommended"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2021
+  },
+  "plugins": ["simple-import-sort"],
+  "rules": {
+    "simple-import-sort/sort": "error"
+  }
+}
