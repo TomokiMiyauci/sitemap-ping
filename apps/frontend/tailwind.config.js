@@ -19,7 +19,18 @@ const config = {
   theme: {
     extend: {},
   },
-  variants: {},
+  variants: {
+    textColor: ['responsive', 'hover', 'focus', 'disabled', 'focus-within'],
+    backgroundColor: [
+      'responsive',
+      'hover',
+      'focus',
+      'disabled',
+      'focus-within',
+      'checked',
+    ],
+    cursor: ['disabled'],
+  },
   plugins: [],
 }
 
