@@ -20,6 +20,11 @@
   },
   "lint-staged": {
     "*.ts": "eslint --fix",
-    "*": "prettier -w -u"
+    "*": "prettier --write"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   }
 }
