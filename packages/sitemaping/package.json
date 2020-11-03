@@ -1,5 +1,5 @@
 {
-  "name": "@sitemaping/core",
+  "name": "sitemaping",
   "version": "0.0.2",
   "description": "Sitemap ping requester",
   "author": "TomokiMiyauci <development.operation.6.6.6@gmail.com>",
@@ -29,5 +29,5 @@
       "path": "cz-conventional-changelog"
     }
   },
-  "gitHead": "de321b3b5594d82c2dfc6c83e937dd8be1edc3e2"
+  "gitHead": "0a2357c3e3c006f893e213db8ac5182c8da608ba"
 }
