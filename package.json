@@ -1,5 +1,5 @@
 {
-  "name": "sitemap-ping",
+  "name": "sitemaping",
   "license": "MIT",
   "devDependencies": {
     "commitizen": "^4.2.2",
@@ -20,7 +20,7 @@
   },
   "lint-staged": {
     "*.ts": "eslint --fix",
-    "*": "prettier --write"
+    "*": "prettier -w -u"
   },
   "config": {
     "commitizen": {
