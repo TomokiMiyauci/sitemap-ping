@@ -9,10 +9,5 @@
     "packages/*",
     "apps/*"
   ],
-  "private": true,
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
-  }
+  "private": true
 }
