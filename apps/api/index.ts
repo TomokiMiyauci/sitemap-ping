@@ -1,16 +1,21 @@
 import { NowApiHandler, NowRequest, NowResponse } from '@now/node'
-import got from 'got'
+import { Google } from 'sitemaping'
 
 import { allowCors } from './utils'
 
-const handler: NowApiHandler = async (req: NowRequest, res: NowResponse) => {
-  const { sitemapUrl } = req.body as { sitemapUrl: string }
-  const result = await got.get('https://google.com')
+const handler: NowApiHandler = async (
+  { body }: NowRequest,
+  res: NowResponse
+) => {
+  const { sitemapUrl } = body as { sitemapUrl: string }
 
-  res.status(result.statusCode).json({
-    message: result.body,
+  const google = new Google(sitemapUrl)
+
+  const result = await google.ping()
+
+  res.status(result).json({
+    message: result,
     body: sitemapUrl,
   })
 }
-
 export default allowCors(handler)
