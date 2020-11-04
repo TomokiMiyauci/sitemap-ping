@@ -5,6 +5,8 @@
     "module": "CommonJS",
     "declaration": true,
     "outDir": "lib",
+    "rootDir": "src",
     "types": ["jest"]
-  }
+  },
+  "exclude": ["tests/**/*"]
 }
