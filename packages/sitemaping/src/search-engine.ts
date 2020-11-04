@@ -1,9 +1,5 @@
 export abstract class SearchEngine {
-  sitemapUrl: string
-  constructor(sitemapUrl: string) {
-    this.sitemapUrl = sitemapUrl
-  }
-  abstract ping = () => {}
+  abstract ping(): Promise<number | never>
 }
 
 export default SearchEngine
