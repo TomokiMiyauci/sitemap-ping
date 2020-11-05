@@ -17,6 +17,7 @@
     "vue-i18n": "^9.0.0-beta.6"
   },
   "devDependencies": {
+    "@intlify/eslint-plugin-vue-i18n": "^0.9.0",
     "@intlify/vite-plugin-vue-i18n": "^1.0.0-alpha.2",
     "@mdi/js": "^5.8.55",
     "@typescript-eslint/eslint-plugin": "^4.6.0",
