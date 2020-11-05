@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://sitemaping.tomoki-miyauci.vercel.app/
