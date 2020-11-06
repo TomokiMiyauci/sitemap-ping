@@ -118,8 +118,8 @@
             })
             .json()
             .then(() => emit('success'))
-            .catch(() => {
-              throw new Error('ss')
+            .catch((e: Error) => {
+              throw e
             })
         })
       }
