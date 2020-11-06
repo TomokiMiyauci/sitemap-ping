@@ -17,7 +17,21 @@ const config = {
     content: [join(BASE_DIR, VUE_FILE), join(__dirname, '*.html')],
   },
   theme: {
-    extend: {},
+    extend: {
+      spacing: {
+        72: '18rem',
+        84: '21rem',
+        96: '24rem',
+        108: '27rem',
+        120: '30rem',
+        132: '33rem',
+        144: '36rem',
+        156: '39rem',
+        168: '42rem',
+        180: '45rem',
+        192: '48rem',
+      },
+    },
   },
   variants: {
     textColor: ['responsive', 'hover', 'focus', 'disabled', 'focus-within'],
@@ -29,6 +43,7 @@ const config = {
       'focus-within',
       'checked',
     ],
+    gradientColorStops: ['responsive', 'hover', 'focus', 'focus-within'],
     cursor: ['disabled'],
   },
   plugins: [],
