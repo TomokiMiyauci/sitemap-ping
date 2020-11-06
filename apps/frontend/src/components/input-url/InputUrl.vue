@@ -119,7 +119,6 @@
             .json()
             .then(() => emit('success'))
             .catch(() => {
-              console.log(22)
               throw new Error('ss')
             })
         })
