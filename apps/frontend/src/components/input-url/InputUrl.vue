@@ -68,7 +68,6 @@
   import MdiGoogle from '/@/components/base/icons/MdiGoogle.vue'
   import MdiMicrosoftBing from '/@/components/base/icons/MdiMicrosoftBing.vue'
   import MdiSitemap from '/@/components/base/icons/MdiSitemap.vue'
-  import SearchEngine from '/@/components/input-url/SearchEngine.vue'
   import { useSync } from '/@/core/sync'
   const searchEngine = [
     {
@@ -100,7 +99,6 @@
       MdiSitemap,
       MdiGoogle,
       MdiMicrosoftBing,
-      SearchEngine,
     },
     emits: ['success'],
 
