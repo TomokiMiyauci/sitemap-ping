@@ -1,6 +1,6 @@
 <template>
   <base-button>
-    <mdi-send />
+    <mdi-send class="h-8 w-8" />
   </base-button>
 </template>
 

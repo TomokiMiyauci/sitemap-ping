@@ -1,40 +1,24 @@
 <template>
   <div class="flex justify-around mt-5">
-    <input
-      id="checkbox"
-      v-model="searchEngines"
-      class="appearance-none"
-      type="checkbox"
-      value="google"
-      checked
-    />
+    <template v-for="{ name, icon } in searchEngine" :key="name">
+      <input
+        :id="name"
+        v-model="searchEngines"
+        class="appearance-none hidden"
+        type="checkbox"
+        :value="name.toLowerCase()"
+      />
 
-    <label
-      for="checkbox"
-      class="w-32 h-32 shadow flex justify-center items-center rounded hover:shadow-md cursor-pointer hover:bg-gray-200 transition duration-300"
-    >
-      <div class="flex flex-col items-center">
-        <mdi-google class="w-24 h-24" />
-        <span class="text-lg">Google</span>
-      </div>
-    </label>
-    <input
-      id="checkbox1"
-      v-model="searchEngines"
-      class="checked:bg-green-300 appearance-none bg-green-400"
-      type="checkbox"
-      value="bing"
-    />
-
-    <label
-      for="checkbox1"
-      class="w-32 h-32 ml-10 shadow flex justify-center items-center rounded hover:shadow-md cursor-pointer hover:bg-gray-100"
-    >
-      <div class="flex flex-col items-center">
-        <mdi-microsoft-bing class="w-24 h-24" />
-        <span class="text-lg">Bing</span>
-      </div>
-    </label>
+      <label
+        :for="name"
+        class="w-32 h-32 shadow bg-white flex justify-center items-center rounded hover:shadow-md cursor-pointer hover:bg-gray-200 transition duration-300"
+      >
+        <div class="flex flex-col items-center">
+          <component :is="icon" class="w-24 h-24" />
+          <span class="text-lg pointer-events-none">{{ name }}</span>
+        </div>
+      </label>
+    </template>
   </div>
 
   <teleport to="body">
@@ -52,21 +36,24 @@
 
   <div class="flex flex-col">
     <div
-      class="shadow mt-10 inline-flex justify-center items-center overflow-hidden rounded-full hover:shadow-md hover:bg-gray-100 transition duration-300 focus-within:bg-gray-300 focus-within:text-teal-400"
+      class="shadow bg-white mt-10 inline-flex justify-between items-center overflow-hidden rounded-full hover:shadow-md hover:bg-gray-200 transition duration-300 focus-within:bg-gray-300 bg-gradient-to-r focus-within:from-teal-400 focus-within:to-purple-400"
     >
-      <mdi-sitemap class="mx-4" />
-      <input
-        v-model.trim="sitemapUrl"
-        placeholder="Enter Sitemap URL"
-        type="url"
-        autocomplete="url"
-        spellcheck="off"
-        autofocus
-        class="outline-none bg-transparent w-64 mr-3 focus:outline-none"
-      />
+      <div class="flex items-center">
+        <mdi-sitemap class="mx-4 h-8 w-8" />
+        <input
+          v-model.trim="sitemapUrl"
+          placeholder="Enter Sitemap URL"
+          type="url"
+          autocomplete="url"
+          spellcheck="off"
+          autofocus
+          class="outline-none py-3 placeholder-gray-600 text-xl sm:text-3xl bg-transparent mr-3 focus:outline-none"
+        />
+      </div>
+
       <button-send
         :disabled="!isPostable"
-        class="bg-gray-500 p-2 rounded-sm transition-colors duration-300 hover:bg-gray-600"
+        class="px-4 rounded-sm transition-colors duration-300 disabled:text-gray-600"
         @click="onClick"
       />
     </div>
@@ -81,8 +68,15 @@
   import MdiGoogle from '/@/components/base/icons/MdiGoogle.vue'
   import MdiMicrosoftBing from '/@/components/base/icons/MdiMicrosoftBing.vue'
   import MdiSitemap from '/@/components/base/icons/MdiSitemap.vue'
+  import SearchEngine from '/@/components/input-url/SearchEngine.vue'
   import { useSync } from '/@/core/sync'
-
+  const searchEngine = [
+    {
+      name: 'Google',
+      icon: MdiGoogle,
+    },
+    { name: 'Bing', icon: MdiMicrosoftBing },
+  ]
   const useForm = () => {
     const state = reactive({
       sitemapUrl: '',
@@ -106,6 +100,7 @@
       MdiSitemap,
       MdiGoogle,
       MdiMicrosoftBing,
+      SearchEngine,
     },
     emits: ['success'],
 
@@ -132,17 +127,24 @@
         })
       }
 
-      return { onClick, sitemapUrl, searchEngines, isPostable, state }
+      return {
+        onClick,
+        sitemapUrl,
+        searchEngines,
+        isPostable,
+        searchEngine,
+        state,
+      }
     },
   })
 </script>
 
 <style lang="scss" scoped>
   input[type='checkbox']:checked + label {
-    @apply text-teal-500 bg-teal-100;
+    @apply bg-gradient-to-r from-teal-400 to-purple-400 text-gray-700;
 
     &:hover {
-      @apply bg-teal-200;
+      @apply from-teal-500 to-purple-500;
     }
   }
 </style>
