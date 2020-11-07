@@ -8,24 +8,20 @@ const http = got.extend({
 })
 
 export class Google extends SearchEngine {
-  private sitemapUrl: string
   constructor(sitemapUrl?: string) {
-    super()
-    this.sitemapUrl = sitemapUrl || ''
+    super(sitemapUrl)
   }
 
   ping = async (sitemapUrl?: string): Promise<number | never> => {
-    const url = sitemapUrl || this.sitemapUrl
-    if (!url) {
-      throw Error('Argument error')
+    if (!this.check(sitemapUrl)) {
+      throw SyntaxError()
     }
+
     const result = await http.get('', {
       searchParams: {
-        sitemap: url,
+        sitemap: this.url,
       },
     })
-
-    console.log(result)
 
     return result.statusCode
   }
