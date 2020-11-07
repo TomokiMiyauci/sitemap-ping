@@ -1,6 +1,7 @@
 {
+  "preset": "ts-jest",
   "testMatch": ["<rootDir>/tests/*.spec.ts"],
   "transform": {
-    "^.+\\.(ts|tsx)$": "ts-jest"
+    "^.+\\.ts$": "ts-jest"
   }
 }
