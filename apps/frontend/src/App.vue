@@ -9,12 +9,7 @@
     />
 
     <div class="max-w-full">
-      <h1
-        class="sm:text-6xl text-5xl tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-purple-500"
-      >
-        <span>SITEMA</span><span style="text-shadow: 8px 7px 0 darkgrey">P</span
-        ><span class="tracking-widest">ing</span>
-      </h1>
+      <logo-letter />
       <h2 class="text-2xl text-gray-600">{{ t('description') }}</h2>
 
       <input-url @success="onSuccess" />
@@ -29,6 +24,7 @@
   import { useI18n } from 'vue-i18n'
 
   import LinkRepo from '/@/components/app/LinkRepo.vue'
+  import LogoLetter from '/@/components/app/LogoLetter.vue'
   import BaseSnackbar from '/@/components/base/BaseSnackbar.vue'
   import MdiSitemap from '/@/components/base/icons/MdiSitemap.vue'
   import InputUrl from '/@/components/input-url/InputUrl.vue'
@@ -39,6 +35,7 @@
       LinkRepo,
       BaseSnackbar,
       MdiSitemap,
+      LogoLetter,
     },
 
     setup() {
