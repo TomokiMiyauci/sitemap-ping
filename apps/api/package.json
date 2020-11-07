@@ -27,6 +27,6 @@
     }
   },
   "dependencies": {
-    "sitemaping": "^0.1.2"
+    "sitemaping": "^0.2.0"
   }
 }
