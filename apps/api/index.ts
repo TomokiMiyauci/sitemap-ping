@@ -1,21 +1,25 @@
 import { NowApiHandler, NowRequest, NowResponse } from '@now/node'
-import { Google } from 'sitemaping'
+import { requestUpdate } from 'sitemaping'
 
 import { allowCors } from './utils'
+
+type Body = {
+  sitemapUrl: string
+  searchEngines: ('google' | 'bing')[]
+}
 
 const handler: NowApiHandler = async (
   { body }: NowRequest,
   res: NowResponse
 ) => {
-  const { sitemapUrl } = body as { sitemapUrl: string }
+  const { sitemapUrl, searchEngines } = body as Body
 
-  const google = new Google(sitemapUrl)
+  const result = await requestUpdate(sitemapUrl, searchEngines)
 
-  const result = await google.ping()
+  const partOfFail = result.some(({ status }) => status !== 200)
 
-  res.status(result).json({
+  res.status(partOfFail ? 500 : 200).json({
     message: result,
-    body: sitemapUrl,
   })
 }
 export default allowCors(handler)
