@@ -90,7 +90,7 @@
   }
 
   const http = ky.create({
-    prefixUrl: 'https://sitemaping.tomoki-miyauci.vercel.app/',
+    prefixUrl: import.meta.env.VITE_REPOSITRY_URL || 'localhost:3000',
     retry: 0,
   })
   export default defineComponent({
@@ -109,7 +109,7 @@
       const onClick = () => {
         syncCall(async () => {
           await http
-            .post('api/dist', {
+            .post('', {
               mode: 'cors',
               json: {
                 sitemapUrl: sitemapUrl.value,
