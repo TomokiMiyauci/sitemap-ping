@@ -90,7 +90,7 @@
   }
 
   const http = ky.create({
-    prefixUrl: import.meta.env.VITE_REPOSITRY_URL || 'localhost:3000',
+    prefixUrl: import.meta.env.VITE_REPOSITRY_URL || 'http://localhost:3000',
     retry: 0,
   })
   export default defineComponent({
