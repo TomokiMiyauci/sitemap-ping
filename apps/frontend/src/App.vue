@@ -49,7 +49,11 @@
         inheritLocale: true,
       })
 
-      return { snackbar, onSuccess, t }
+      return {
+        snackbar,
+        onSuccess,
+        t,
+      }
     },
   })
 </script>
