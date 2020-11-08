@@ -90,7 +90,7 @@
   }
 
   const http = ky.create({
-    prefixUrl: import.meta.env.VITE_REPOSITRY_URL || 'http://localhost:3000',
+    prefixUrl: 'https://sitemaping-functions.vercel.app/api',
     retry: 0,
   })
   export default defineComponent({
